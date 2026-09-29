@@ -3,8 +3,6 @@
 Tujuan dari pertemuan 2 ini adalah memahami fondasi kerangka kerja (framework) buatan sendiri yang berbasis arsitektur MVC (Model-View-Controller). Memahami alur dari setiap komponen dalam pengembangan aplikasi web, dan mampu menjelaskan alur interaksi antarkomponen berdasarkan rancangan yang diberikan.
 
 ## 2. Struktur Direktori
-
-```text
 pertemuan-02/
 ├── application/
 │   ├── config/
@@ -27,6 +25,7 @@ pertemuan-02/
 
 ## 3. Front controller
 index.php bertindak sebagai pintu gerbang utama (satu-satunya titik masuk) bagi siapa pun yang ingin mengakses aplikasi web kita.
+
 ## 4. Routing dan Pemetaan URL
 | URL/Route | Controller | Method | Parameter | View |
 |---|---|---|---|---|
@@ -48,6 +47,7 @@ Parameter (`$1`):Nilai angka NIK dari URL ditangkap oleh wildcard `(:num)` dan d
 (`home/pasien.php`):Controller mengolah data profil (NIK: 1901071010060001, Nama: Andika Setiawan) 
 
 lalu memuat tampilan akhir pada file View `home/pasien.php`.
+
 ## 5. Base URL dan Helper
 - **`base_url()`**: Berfungsi untuk menghasilkan URL dasar (*root URL*) proyek yang mengarah ke lokasi folder atau file fisik statis di direktori publik.
   - **Contoh Penggunaan P2:** Memanggil file stylesheet CSS pada file View (`application/views/home/index.php`):
