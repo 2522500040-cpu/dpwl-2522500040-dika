@@ -3,6 +3,7 @@
 Tujuan dari pertemuan 2 ini adalah memahami fondasi kerangka kerja (framework) buatan sendiri yang berbasis arsitektur MVC (Model-View-Controller). Memahami alur dari setiap komponen dalam pengembangan aplikasi web, dan mampu menjelaskan alur interaksi antarkomponen berdasarkan rancangan yang diberikan.
 
 ## 2. Struktur Direktori
+```text
 pertemuan-02/
 ├── application/
 │   ├── config/
@@ -16,13 +17,13 @@ pertemuan-02/
 │       └── home/
 │           ├── index.php   -> View untuk halaman utama (beranda)
 │           ├── info.php    -> View untuk menampilkan informasi routing
-│           └── pasien.php -> View kustom untuk profil pasien
+│           └── pasien.php  -> View kustom untuk profil pasien
 ├── assets/
 │   └── css/
 │       └── app.css         -> File stylesheet aset statis
 ├── system/                 -> Core framework MVC
 └── index.php               -> Front Controller (pintu masuk utama aplikasi)
-
+```
 ## 3. Front controller
 index.php bertindak sebagai pintu gerbang utama (satu-satunya titik masuk) bagi siapa pun yang ingin mengakses aplikasi web kita.
 
@@ -98,12 +99,11 @@ Catatan: Pada implementasi P2, Model belum digunakan karena akses dan pengelolaa
 ## 8. Bukti Tangkapan Layar
 Sisipkan gambar yang relevan dari folder dokumentasi/ dengan perintah:
 ### Gambar 1. Hasil Pengujian Halaman Utama
-![gambar1](file:///C:/laragon/www/dpwl-2522500040-dika/pertemuan-02/dokumentasi/gambar1.png)
+![gambar1](dokumentasi/gambar1.png)
 ### Gambar 2. Hasil Pengujian Custom Route
-![gambar2](file:///C:/laragon/www/dpwl-2522500040-dika/pertemuan-02/dokumentasi/gambar2.png)
+![gambar1](dokumentasi/gambar2.png)
 ### Gambar 3. Data Profil Pasien
-![gambar3](file:///C:/laragon/www/dpwl-2522500040-dika/pertemuan-02/dokumentasi/gambar3.png)
-
+![gambar1](dokumentasi/gambar3.png)
 
 ## 9. Kesimpulan P2
 Pada praktikum P2 ini, kerangka kerja PHP MVC kustom telah berhasil dipelajari dan diimplementasikan untuk membangun fondasi dasar aplikasi web. Beberapa hal yang sudah dapat dilakukan oleh kerangka kerja MVC pada tahap ini meliputi:
