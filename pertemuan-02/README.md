@@ -1,7 +1,10 @@
 # pertemuan-02
 ## 1. Tujuan Praktikum
 Tujuan dari pertemuan 2 ini adalah memahami fondasi kerangka kerja (framework) buatan sendiri yang berbasis arsitektur MVC (Model-View-Controller). Memahami alur dari setiap komponen dalam pengembangan aplikasi web, dan mampu menjelaskan alur interaksi antarkomponen berdasarkan rancangan yang diberikan.
+
 ## 2. Struktur Direktori
+
+```text
 pertemuan-02/
 ├── application/
 │   ├── config/
@@ -21,6 +24,7 @@ pertemuan-02/
 │       └── app.css         -> File stylesheet aset statis
 ├── system/                 -> Core framework MVC
 └── index.php               -> Front Controller (pintu masuk utama aplikasi)
+
 ## 3. Front controller
 index.php bertindak sebagai pintu gerbang utama (satu-satunya titik masuk) bagi siapa pun yang ingin mengakses aplikasi web kita.
 ## 4. Routing dan Pemetaan URL
