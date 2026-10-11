@@ -1,6 +1,6 @@
 # pertemuan-03
 ### Gambar 1. Halaman Login
-![gambar1](dokumentasi/Screenshot 2026-10-11 185425.png)
+![gambar1](dokumentasi/1.png)
 ### Gambar 2. Halaman Admin
-![gambar1](dokumentasi/Screenshot 2026-10-11 185451.png)
+![gambar1](dokumentasi/2.png)
 
