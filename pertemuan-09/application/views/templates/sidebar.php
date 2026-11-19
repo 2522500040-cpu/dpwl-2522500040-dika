@@ -40,7 +40,8 @@ fa-search"></i>
 <!-- Sidebar Menu -->
 <ul class="sidebar-menu" data-widget="tree">
 <li class="header">MENU ADMIN</li>
-<li class="active">
+<?php $menuAktif = $menu_aktif ?? 'dashboard'; ?>
+<li class="<?= $menuAktif === 'dashboard' ? 'active' : '' ?>">
 <a href="<?= htmlspecialchars(site_url('admin'), ENT_QUOTES, 'UTF-8') ?>">
 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 </a>
@@ -56,9 +57,16 @@ fa-search"></i>
 <i class="fa fa-car"></i> <span>Manajemen Kendaraan</span>
 </a>
 </li>
-<li>
-<a href="<?= htmlspecialchars(site_url('admin/pembayaran'), ENT_QUOTES, 'UTF-8') ?>">
-<i class="fa fa-money"></i> <span>Verifikasi Pembayaran</span>
+<!-- Transaksi Sewa Langsung (admin) -->
+<li class="<?= $menuAktif === 'sewa_langsung' ? 'active' : '' ?>">
+<a href="<?= htmlspecialchars(site_url('admin/sewa-langsung'), ENT_QUOTES, 'UTF-8') ?>">
+<i class="fa fa-exchange"></i> <span>Sewa Langsung</span>
+</a>
+</li>
+<!-- Master Verifikasi Pembayaran (admin) -->
+<li class="<?= $menuAktif === 'verifikasi' ? 'active' : '' ?>">
+<a href="<?= htmlspecialchars(site_url('admin/verifikasi'), ENT_QUOTES, 'UTF-8') ?>">
+<i class="fa fa-check-square-o"></i> <span>Verifikasi Pembayaran</span>
 </a>
 </li>
 <!--/ ditambahkan pada P5-->

@@ -89,6 +89,12 @@ Login Penyewa
 </li>
 <?php else: ?>
 <li class="nav-item">
+<a class="nav-link"
+href="<?= $e(site_url('pembayaran')) ?>">
+Pembayaran
+</a>
+</li>
+<li class="nav-item">
 <form
 action="<?= $e(site_url('auth/logout-penyewa')) ?>"
 method="post"

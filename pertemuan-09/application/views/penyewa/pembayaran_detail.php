@@ -7,7 +7,10 @@ $daftarKendaraan = $daftarKendaraan ?? [];
 $flash = $flash ?? null;
 $e = static fn($value): string => htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 $status = (string) ($pembayaran['sttus_byr'] ?? '');
-$bolehUnggah = $status === 'pending' && empty($pembayaran['tgl_wkt_ver']);
+$token = $token ?? '';
+$bolehUnggah = $status === 'pending'
+  && empty($pembayaran['tgl_wkt_ver'])
+  && ($pembayaran['status_sewa'] ?? '') === 'diajukan';
 $namaBukti = trim((string) ($pembayaran['ft_byr'] ?? ''));
 ?>
 <section class="container py-5">
@@ -25,7 +28,7 @@ $namaBukti = trim((string) ($pembayaran['ft_byr'] ?? ''));
         <dt class="col-sm-4">Waktu rencana pengambilan</dt><dd class="col-sm-8"><?= $e($pembayaran['wkt_ambil'] ?? '-') ?></dd>
         <dt class="col-sm-4">Nominal DP</dt><dd class="col-sm-8">Rp <?= number_format((int) ($pembayaran['nominal'] ?? 0), 0, ',', '.') ?></dd>
         <dt class="col-sm-4">Metode</dt><dd class="col-sm-8"><?= $e($pembayaran['mtode_byr'] ?? '') ?></dd>
-        <dt class="col-sm-4">Status pembayaran</dt><dd class="col-sm-8"><?= $e($status) ?></dd>
+        <dt class="col-sm-4">Status pembayaran</dt><dd class="col-sm-8"><?= $e(['pending' => 'Menunggu verifikasi', 'valid' => 'Valid', 'invalid' => 'Ditolak'][$status] ?? $status) ?></dd>
         <dt class="col-sm-4">Status transaksi</dt><dd class="col-sm-8"><?= $e($pembayaran['status_sewa'] ?? '') ?></dd>
         <dt class="col-sm-4">Waktu unggah</dt><dd class="col-sm-8"><?= $e($pembayaran['tgl_wkt_byr'] ?? '-') ?></dd>
         <dt class="col-sm-4">Waktu verifikasi</dt><dd class="col-sm-8"><?= $e($pembayaran['tgl_wkt_ver'] ?? '-') ?></dd>
@@ -61,7 +64,7 @@ $namaBukti = trim((string) ($pembayaran['ft_byr'] ?? ''));
     <div class="mb-4">
       <h2 class="h5">Bukti transfer</h2>
       <img class="img-fluid img-thumbnail" style="max-width:520px"
-           src="<?= $e(base_url('uploads/bayar/' . rawurlencode($namaBukti))) ?>"
+           src="<?= $e(site_url('pembayaran/bukti/' . str_replace('/', '~', (string) $pembayaran['kode_bayar']))) ?>"
            alt="Bukti transfer pembayaran">
     </div>
   <?php else: ?>
@@ -75,6 +78,7 @@ $namaBukti = trim((string) ($pembayaran['ft_byr'] ?? ''));
         <p class="text-muted">Format JPEG, PNG, atau WEBP; ukuran maksimal 5 MB.</p>
         <form action="<?= $e(site_url('pembayaran/upload/' . str_replace('/', '~', (string) $pembayaran['kode_bayar']))) ?>"
               method="post" enctype="multipart/form-data">
+          <input type="hidden" name="csrf_token" value="<?= $e($token) ?>">
           <div class="mb-3">
             <label for="ft_byr" class="form-label">Berkas bukti pembayaran</label>
             <input class="form-control" type="file" id="ft_byr" name="ft_byr" accept="image/jpeg,image/png,image/webp" required>

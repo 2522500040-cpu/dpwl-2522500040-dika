@@ -36,11 +36,22 @@ $route['transaksi/hapus'] = 'Transaksi_controller/hapus';
 $route['transaksi/hapus/(:any)'] = 'Transaksi_controller/hapus/$1';
 $route['transaksi/checkout'] = 'Transaksi_controller/checkout';
 
-// Route P9 - Pembayaran DP dan verifikasi admin.
+
+// Transaksi Sewa Langsung 
+$route['admin/sewa-langsung'] = 'Sewalangsung_controller/index';
+$route['admin/sewa-langsung/tambah'] = 'Sewalangsung_controller/tambah';
+$route['admin/sewa-langsung/detail/(:any)'] = 'Sewalangsung_controller/detail/$1';
+$route['admin/sewa-langsung/batalkan/(:any)'] = 'Sewalangsung_controller/batalkan/$1';
+
+// Pembayaran DP - sisi penyewa
 $route['pembayaran'] = 'Pembayaran_controller/index';
 $route['pembayaran/detail/(:any)'] = 'Pembayaran_controller/detail/$1';
-$route['pembayaran/upload/(:any)'] = 'Pembayaran_controller/uploadBukti/$1';
+$route['pembayaran/upload/(:any)'] = 'Pembayaran_controller/upload/$1';
+$route['pembayaran/bukti/(:any)'] = 'Pembayaran_controller/bukti/$1';
 
-$route['admin/pembayaran'] = 'Pembayaran_controller/verifikasiIndex';
-$route['admin/pembayaran/verifikasi/(:any)'] = 'Pembayaran_controller/verifikasiDetail/$1';
-$route['admin/pembayaran/proses/(:any)'] = 'Pembayaran_controller/prosesVerifikasi/$1';
+// Master verifikasi pembayaran - sisi admin
+$route['admin/verifikasi'] = 'Verifikasi_controller/index';
+$route['admin/verifikasi/detail/(:any)'] = 'Verifikasi_controller/detail/$1';
+$route['admin/verifikasi/bukti/(:any)'] = 'Verifikasi_controller/bukti/$1';
+$route['admin/verifikasi/terima/(:any)'] = 'Verifikasi_controller/terima/$1';
+$route['admin/verifikasi/tolak/(:any)'] = 'Verifikasi_controller/tolak/$1';
